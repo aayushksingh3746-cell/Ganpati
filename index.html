@@ -1,1473 +1,1870 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-  <title>Ganpati Jhanki Mahotsav | You Are Warmly Invited</title>
+    <title>Ganpati Jhanki Mahotsav | You Are Warmly Invited</title>
 
-  <meta
-    name="description"
-    content="A warm invitation to our annual Ganpati Jhanki Mahotsav."
-  />
+    <meta
+        name="description"
+        content="You are warmly invited with your family to celebrate our annual Ganpati Jhanki Mahotsav."
+    >
 
-  <!-- Tailwind CSS -->
-  <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
 
-  <!-- Google Fonts -->
-  <link rel="preconnect" href="https://fonts.googleapis.com" />
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 
-  <link
-    href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Playfair+Display:wght@400;500;600;700&display=swap"
-    rel="stylesheet"
-  />
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Playfair+Display:wght@400;500;600;700&display=swap"
+        rel="stylesheet"
+    >
 
-  <!-- GSAP -->
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+    <!-- GSAP -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
 
-  <script>
-    tailwind.config = {
-      theme: {
-        extend: {
-          colors: {
-            ivory: "#FAFAF8",
-            charcoal: "#2C2A29",
-            saffron: "#F47B20",
-            gold: "#D4AF37"
-          },
-          fontFamily: {
-            display: ["Playfair Display", "serif"],
-            sans: ["Inter", "sans-serif"]
-          }
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        ivory: "#FAFAF8",
+                        charcoal: "#2C2A29",
+                        saffron: "#F47B20",
+                        gold: "#D4AF37"
+                    },
+                    fontFamily: {
+                        display: ["Playfair Display", "serif"],
+                        sans: ["Inter", "sans-serif"]
+                    }
+                }
+            }
+        };
+    </script>
+
+    <style>
+        :root {
+            --ivory: #FAFAF8;
+            --charcoal: #2C2A29;
+            --saffron: #F47B20;
+            --gold: #D4AF37;
         }
-      }
-    };
-  </script>
-
-  <style>
-    :root {
-      --ivory: #FAFAF8;
-      --charcoal: #2C2A29;
-      --saffron: #F47B20;
-      --gold: #D4AF37;
-    }
-
-    html {
-      scroll-behavior: smooth;
-    }
-
-    body {
-      margin: 0;
-      background: var(--ivory);
-      color: var(--charcoal);
-      font-family: "Inter", sans-serif;
-      overflow-x: hidden;
-    }
-
-    ::selection {
-      background: var(--saffron);
-      color: white;
-    }
-
-    /* --------------------------------
-       Background glow
-    -------------------------------- */
-
-    .ambient-glow {
-      position: absolute;
-      width: 420px;
-      height: 420px;
-      border-radius: 50%;
-      background: rgba(244, 123, 32, 0.055);
-      filter: blur(80px);
-      pointer-events: none;
-    }
-
-    .glow-one {
-      top: 5%;
-      left: -180px;
-    }
-
-    .glow-two {
-      top: 35%;
-      right: -180px;
-      background: rgba(212, 175, 55, 0.055);
-    }
-
-    /* --------------------------------
-       Falling particles
-    -------------------------------- */
-
-    #particle-container {
-      position: fixed;
-      inset: 0;
-      pointer-events: none;
-      overflow: hidden;
-      z-index: 2;
-    }
-
-    .particle {
-      position: absolute;
-      top: -30px;
-      width: 5px;
-      height: 5px;
-      border-radius: 50%;
-      background: rgba(212, 175, 55, 0.38);
-      animation: fall linear infinite;
-    }
-
-    .particle.petal {
-      width: 8px;
-      height: 4px;
-      border-radius: 70% 30% 70% 30%;
-      background: rgba(244, 123, 32, 0.25);
-      transform: rotate(25deg);
-    }
-
-    @keyframes fall {
-      0% {
-        transform: translate3d(0, -30px, 0) rotate(0deg);
-        opacity: 0;
-      }
-
-      10% {
-        opacity: 1;
-      }
-
-      90% {
-        opacity: 0.7;
-      }
-
-      100% {
-        transform: translate3d(80px, 110vh, 0) rotate(360deg);
-        opacity: 0;
-      }
-    }
-
-    /* --------------------------------
-       Hero
-    -------------------------------- */
-
-    .hero {
-      position: relative;
-      min-height: 100svh;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      overflow: hidden;
-    }
-
-    .hero-content {
-      position: relative;
-      z-index: 5;
-    }
-
-    .ganesha-wrapper {
-      width: min(300px, 72vw);
-      margin: 0 auto 30px;
-    }
-
-    .ganesha-svg {
-      width: 100%;
-      height: auto;
-      overflow: visible;
-    }
-
-    .ganesha-svg path,
-    .ganesha-svg circle,
-    .ganesha-svg ellipse {
-      fill: none;
-      stroke: var(--saffron);
-      stroke-width: 2;
-      stroke-linecap: round;
-      stroke-linejoin: round;
-    }
-
-    .ganesha-gold {
-      stroke: var(--gold) !important;
-    }
-
-    .hero-preheading {
-      letter-spacing: 0.22em;
-    }
-
-    .hero-title {
-      letter-spacing: -0.035em;
-    }
-
-    /* --------------------------------
-       Marquee
-    -------------------------------- */
-
-    .marquee-wrapper {
-      overflow: hidden;
-      border-top: 1px solid rgba(44, 42, 41, 0.08);
-      border-bottom: 1px solid rgba(44, 42, 41, 0.08);
-      background: #f6f5f0;
-    }
-
-    .marquee-track {
-      display: flex;
-      width: max-content;
-      animation: marquee 25s linear infinite;
-    }
-
-    .marquee-item {
-      white-space: nowrap;
-      padding: 17px 30px;
-      font-family: "Playfair Display", serif;
-      font-size: 1rem;
-      color: var(--saffron);
-      letter-spacing: 0.12em;
-    }
-
-    @keyframes marquee {
-      from {
-        transform: translateX(0);
-      }
-
-      to {
-        transform: translateX(-50%);
-      }
-    }
-
-    /* --------------------------------
-       Section
-    -------------------------------- */
-
-    .section {
-      position: relative;
-      padding: 100px 0;
-    }
-
-    .eyebrow {
-      font-size: 0.72rem;
-      letter-spacing: 0.22em;
-      text-transform: uppercase;
-      color: var(--saffron);
-      font-weight: 600;
-    }
-
-    .section-heading {
-      font-family: "Playfair Display", serif;
-      font-size: clamp(2.4rem, 6vw, 4.5rem);
-      line-height: 1.05;
-      letter-spacing: -0.025em;
-    }
-
-    /* --------------------------------
-       Schedule cards
-    -------------------------------- */
-
-    .schedule-card {
-      position: relative;
-      background: rgba(255, 255, 255, 0.72);
-      border: 1px solid rgba(44, 42, 41, 0.09);
-      border-radius: 24px;
-      padding: 30px;
-      transition:
-        transform 0.45s cubic-bezier(.2,.8,.2,1),
-        box-shadow 0.45s ease,
-        border-color 0.45s ease;
-    }
-
-    .schedule-card:hover {
-      transform: translateY(-9px);
-      border-color: rgba(212, 175, 55, 0.35);
-      box-shadow: 0 22px 55px rgba(212, 175, 55, 0.16);
-    }
-
-    .schedule-number {
-      font-family: "Playfair Display", serif;
-      font-size: 3rem;
-      color: rgba(212, 175, 55, 0.25);
-      line-height: 1;
-    }
-
-    .event-date {
-      color: var(--saffron);
-      font-weight: 600;
-      font-size: 0.9rem;
-    }
-
-    /* --------------------------------
-       Aarti
-    -------------------------------- */
-
-    .aarti-box {
-      position: relative;
-      border: 1px solid rgba(212, 175, 55, 0.22);
-      background: linear-gradient(
-        135deg,
-        rgba(255,255,255,0.8),
-        rgba(255,249,238,0.7)
-      );
-      border-radius: 30px;
-      padding: 60px 25px;
-      overflow: hidden;
-    }
-
-    .aarti-box::before {
-      content: "";
-      position: absolute;
-      width: 180px;
-      height: 180px;
-      border-radius: 50%;
-      background: rgba(244, 123, 32, 0.08);
-      filter: blur(50px);
-      top: -70px;
-      right: -50px;
-    }
-
-    /* --------------------------------
-       Buttons
-    -------------------------------- */
-
-    .premium-button {
-      position: relative;
-      display: inline-flex;
-      align-items: center;
-      justify-content: center;
-      gap: 10px;
-      min-height: 52px;
-      padding: 0 25px;
-      border-radius: 999px;
-      background: var(--charcoal);
-      color: white;
-      font-size: 0.85rem;
-      font-weight: 600;
-      transition:
-        transform 0.3s ease,
-        box-shadow 0.3s ease,
-        background 0.3s ease;
-    }
-
-    .premium-button:hover {
-      transform: translateY(-3px);
-      background: var(--saffron);
-      box-shadow: 0 14px 35px rgba(244, 123, 32, 0.22);
-    }
-
-    .gold-button {
-      background: var(--saffron);
-    }
-
-    .gold-button:hover {
-      background: var(--charcoal);
-    }
-
-    /* --------------------------------
-       Location
-    -------------------------------- */
-
-    .location-card {
-      border: 1px solid rgba(44, 42, 41, 0.08);
-      border-radius: 28px;
-      background: rgba(255,255,255,0.65);
-    }
-
-    /* --------------------------------
-       Modal
-    -------------------------------- */
-
-    .modal-backdrop {
-      position: fixed;
-      inset: 0;
-      z-index: 100;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      padding: 20px;
-      background: rgba(20, 18, 16, 0.48);
-      backdrop-filter: blur(12px);
-      visibility: hidden;
-      opacity: 0;
-    }
-
-    .aarti-modal {
-      width: min(560px, 100%);
-      max-height: 90svh;
-      overflow: hidden;
-      border: 1px solid rgba(255,255,255,0.35);
-      border-radius: 30px;
-      background: rgba(250,250,248,0.92);
-      box-shadow: 0 30px 90px rgba(0,0,0,0.2);
-      transform: translateY(30px) scale(0.97);
-      opacity: 0;
-    }
-
-    .lyrics {
-      max-height: 270px;
-      overflow-y: auto;
-      scrollbar-width: thin;
-      scrollbar-color: var(--gold) transparent;
-    }
-
-    .lyrics::-webkit-scrollbar {
-      width: 5px;
-    }
-
-    .lyrics::-webkit-scrollbar-thumb {
-      background: var(--gold);
-      border-radius: 999px;
-    }
-
-    .close-modal {
-      width: 40px;
-      height: 40px;
-      border-radius: 50%;
-      display: grid;
-      place-items: center;
-      border: 1px solid rgba(44,42,41,0.1);
-      transition: 0.25s ease;
-    }
-
-    .close-modal:hover {
-      background: var(--charcoal);
-      color: white;
-    }
-
-    /* --------------------------------
-       Footer
-    -------------------------------- */
-
-    footer {
-      border-top: 1px solid rgba(44,42,41,0.08);
-    }
-
-    .footer-mantra {
-      font-family: "Playfair Display", serif;
-      font-size: clamp(2rem, 7vw, 4rem);
-      color: var(--saffron);
-    }
-
-    /* --------------------------------
-       Mobile
-    -------------------------------- */
-
-    @media (max-width: 640px) {
-      .section {
-        padding: 75px 0;
-      }
-
-      .hero {
-        min-height: 92svh;
-      }
-
-      .ganesha-wrapper {
-        width: min(245px, 65vw);
-      }
-
-      .schedule-card {
-        padding: 25px;
-      }
-
-      .aarti-box {
-        padding: 45px 20px;
-      }
-    }
-  </style>
+
+        * {
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            margin: 0;
+            background: var(--ivory);
+            color: var(--charcoal);
+            font-family: "Inter", sans-serif;
+            overflow-x: hidden;
+        }
+
+        ::selection {
+            background: rgba(244, 123, 32, 0.2);
+            color: var(--charcoal);
+        }
+
+        /* --------------------------------
+           GENERAL
+        -------------------------------- */
+
+        .display-font {
+            font-family: "Playfair Display", serif;
+        }
+
+        .section-container {
+            width: min(1120px, calc(100% - 40px));
+            margin: 0 auto;
+        }
+
+        .eyebrow {
+            letter-spacing: 0.18em;
+            text-transform: uppercase;
+            font-size: 0.72rem;
+            font-weight: 600;
+        }
+
+        /* --------------------------------
+           AMBIENT BACKGROUND
+        -------------------------------- */
+
+        .ambient-glow {
+            position: fixed;
+            width: 420px;
+            height: 420px;
+            border-radius: 50%;
+            background: radial-gradient(
+                circle,
+                rgba(212, 175, 55, 0.10),
+                transparent 68%
+            );
+            pointer-events: none;
+            z-index: -2;
+            top: 10%;
+            left: 50%;
+            transform: translateX(-50%);
+            filter: blur(15px);
+        }
+
+        .ambient-glow-2 {
+            position: fixed;
+            width: 300px;
+            height: 300px;
+            border-radius: 50%;
+            background: radial-gradient(
+                circle,
+                rgba(244, 123, 32, 0.07),
+                transparent 70%
+            );
+            pointer-events: none;
+            z-index: -2;
+            right: -100px;
+            bottom: 10%;
+            filter: blur(20px);
+        }
+
+        /* --------------------------------
+           PETALS / DUST
+        -------------------------------- */
+
+        #particle-container {
+            position: fixed;
+            inset: 0;
+            overflow: hidden;
+            pointer-events: none;
+            z-index: 20;
+        }
+
+        .particle {
+            position: absolute;
+            top: -30px;
+            width: 5px;
+            height: 8px;
+            border-radius: 60% 40% 60% 40%;
+            background: rgba(244, 123, 32, 0.25);
+            filter: blur(0.2px);
+            animation: fall linear infinite;
+        }
+
+        .particle.glow {
+            width: 4px;
+            height: 4px;
+            border-radius: 50%;
+            background: rgba(212, 175, 55, 0.45);
+            box-shadow: 0 0 10px rgba(212, 175, 55, 0.25);
+        }
+
+        @keyframes fall {
+            0% {
+                transform: translate3d(0, -20px, 0) rotate(0deg);
+                opacity: 0;
+            }
+
+            10% {
+                opacity: 0.7;
+            }
+
+            50% {
+                transform: translate3d(40px, 50vh, 0) rotate(180deg);
+            }
+
+            100% {
+                transform: translate3d(-30px, 110vh, 0) rotate(360deg);
+                opacity: 0;
+            }
+        }
+
+        /* --------------------------------
+           HERO
+        -------------------------------- */
+
+        .hero {
+            min-height: 100svh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+            padding: 90px 20px 70px;
+        }
+
+        .hero-inner {
+            width: min(900px, 100%);
+            text-align: center;
+            position: relative;
+            z-index: 2;
+        }
+
+        .ganesha-wrapper {
+            width: min(270px, 72vw);
+            margin: 0 auto 25px;
+        }
+
+        .ganesha-svg {
+            width: 100%;
+            height: auto;
+            overflow: visible;
+        }
+
+        .ganesha-svg path,
+        .ganesha-svg circle,
+        .ganesha-svg line {
+            fill: none;
+            stroke: var(--saffron);
+            stroke-width: 2;
+            stroke-linecap: round;
+            stroke-linejoin: round;
+        }
+
+        .hero-preheading {
+            color: var(--saffron);
+            margin-bottom: 18px;
+        }
+
+        .hero-title {
+            font-size: clamp(3rem, 9vw, 7rem);
+            line-height: 0.95;
+            letter-spacing: -0.045em;
+            font-weight: 500;
+            margin: 0 auto;
+            max-width: 900px;
+        }
+
+        .hero-title span {
+            color: var(--saffron);
+        }
+
+        .hero-subtitle {
+            max-width: 650px;
+            margin: 25px auto 0;
+            color: rgba(44, 42, 41, 0.68);
+            line-height: 1.8;
+            font-size: clamp(0.95rem, 2vw, 1.08rem);
+            font-weight: 400;
+        }
+
+        .premium-button {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+            margin-top: 34px;
+            padding: 14px 25px;
+            border-radius: 999px;
+            background: var(--charcoal);
+            color: white;
+            font-size: 0.82rem;
+            font-weight: 600;
+            letter-spacing: 0.02em;
+            text-decoration: none;
+            transition:
+                transform 0.35s ease,
+                box-shadow 0.35s ease,
+                background 0.35s ease;
+            box-shadow: 0 10px 30px rgba(44, 42, 41, 0.12);
+        }
+
+        .premium-button:hover {
+            transform: translateY(-3px);
+            background: var(--saffron);
+            box-shadow: 0 14px 35px rgba(244, 123, 32, 0.20);
+        }
+
+        .scroll-indicator {
+            position: absolute;
+            bottom: 25px;
+            left: 50%;
+            transform: translateX(-50%);
+            font-size: 0.65rem;
+            letter-spacing: 0.15em;
+            text-transform: uppercase;
+            color: rgba(44, 42, 41, 0.4);
+        }
+
+        /* --------------------------------
+           MARQUEE
+        -------------------------------- */
+
+        .marquee-section {
+            width: 100%;
+            overflow: hidden;
+            border-top: 1px solid rgba(44, 42, 41, 0.08);
+            border-bottom: 1px solid rgba(44, 42, 41, 0.08);
+            background: rgba(255, 255, 255, 0.45);
+        }
+
+        .marquee-track {
+            display: flex;
+            width: max-content;
+            animation: marquee 22s linear infinite;
+        }
+
+        .marquee-content {
+            display: flex;
+            white-space: nowrap;
+            align-items: center;
+            padding: 17px 0;
+        }
+
+        .marquee-content span {
+            margin: 0 28px;
+            font-family: "Playfair Display", serif;
+            font-size: clamp(1.05rem, 2vw, 1.4rem);
+            color: var(--saffron);
+        }
+
+        @keyframes marquee {
+            from {
+                transform: translateX(0);
+            }
+
+            to {
+                transform: translateX(-50%);
+            }
+        }
+
+        /* --------------------------------
+           SECTION HEADINGS
+        -------------------------------- */
+
+        .section {
+            padding: 105px 0;
+        }
+
+        .section-heading {
+            text-align: center;
+            margin-bottom: 50px;
+        }
+
+        .section-heading .eyebrow {
+            color: var(--gold);
+            margin-bottom: 12px;
+        }
+
+        .section-heading h2 {
+            margin: 0;
+            font-family: "Playfair Display", serif;
+            font-size: clamp(2.4rem, 6vw, 4.2rem);
+            font-weight: 500;
+            letter-spacing: -0.035em;
+        }
+
+        .section-heading p {
+            margin: 15px auto 0;
+            max-width: 550px;
+            color: rgba(44, 42, 41, 0.58);
+            line-height: 1.7;
+        }
+
+        /* --------------------------------
+           SCHEDULE CARDS
+        -------------------------------- */
+
+        .schedule-grid {
+            display: grid;
+            grid-template-columns: repeat(1, minmax(0, 1fr));
+            gap: 18px;
+        }
+
+        .schedule-card {
+            position: relative;
+            min-height: 220px;
+            padding: 30px;
+            background: rgba(255, 255, 255, 0.7);
+            border: 1px solid rgba(44, 42, 41, 0.08);
+            border-radius: 24px;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            overflow: hidden;
+            transition:
+                transform 0.45s cubic-bezier(.2,.8,.2,1),
+                box-shadow 0.45s ease,
+                border-color 0.45s ease;
+        }
+
+        .schedule-card::before {
+            content: "";
+            position: absolute;
+            width: 100px;
+            height: 100px;
+            right: -40px;
+            top: -40px;
+            border-radius: 50%;
+            background: rgba(212, 175, 55, 0.08);
+        }
+
+        .schedule-card:hover {
+            transform: translateY(-9px);
+            border-color: rgba(212, 175, 55, 0.25);
+            box-shadow: 0 22px 50px rgba(212, 175, 55, 0.14);
+        }
+
+        .schedule-number {
+            font-family: "Playfair Display", serif;
+            color: rgba(44, 42, 41, 0.2);
+            font-size: 2.5rem;
+            line-height: 1;
+        }
+
+        .schedule-date {
+            color: var(--saffron);
+            font-size: 0.78rem;
+            font-weight: 600;
+            letter-spacing: 0.03em;
+        }
+
+        .schedule-event {
+            margin-top: 14px;
+            font-family: "Playfair Display", serif;
+            font-size: clamp(1.35rem, 3vw, 1.8rem);
+            line-height: 1.2;
+        }
+
+        .schedule-line {
+            height: 1px;
+            width: 35px;
+            background: var(--gold);
+            margin-top: 20px;
+        }
+
+        /* --------------------------------
+           AARTI
+        -------------------------------- */
+
+        .aarti-section {
+            text-align: center;
+            background:
+                linear-gradient(
+                    180deg,
+                    rgba(212, 175, 55, 0.025),
+                    rgba(244, 123, 32, 0.035)
+                );
+            border-top: 1px solid rgba(44, 42, 41, 0.05);
+            border-bottom: 1px solid rgba(44, 42, 41, 0.05);
+        }
+
+        .aarti-symbol {
+            color: var(--gold);
+            font-size: 1.5rem;
+            margin-bottom: 14px;
+        }
+
+        .aarti-button {
+            margin-top: 28px;
+            background: transparent;
+            color: var(--charcoal);
+            border: 1px solid rgba(44, 42, 41, 0.18);
+            box-shadow: none;
+            cursor: pointer;
+        }
+
+        .aarti-button:hover {
+            color: white;
+            border-color: var(--saffron);
+        }
+
+        /* --------------------------------
+           MODAL
+        -------------------------------- */
+
+        .modal-overlay {
+            position: fixed;
+            inset: 0;
+            z-index: 100;
+            display: none;
+            align-items: center;
+            justify-content: center;
+            padding: 20px;
+            background: rgba(30, 27, 24, 0.45);
+            backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: blur(10px);
+        }
+
+        .modal-overlay.active {
+            display: flex;
+        }
+
+        .aarti-modal {
+            width: min(680px, 100%);
+            max-height: min(800px, 90vh);
+            overflow: hidden;
+            background: rgba(250, 250, 248, 0.90);
+            border: 1px solid rgba(255, 255, 255, 0.65);
+            border-radius: 30px;
+            box-shadow: 0 35px 100px rgba(0, 0, 0, 0.20);
+            backdrop-filter: blur(22px);
+            -webkit-backdrop-filter: blur(22px);
+            position: relative;
+        }
+
+        .modal-header {
+            padding: 27px 28px 20px;
+            border-bottom: 1px solid rgba(44, 42, 41, 0.08);
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 20px;
+        }
+
+        .modal-header h3 {
+            margin: 0;
+            font-family: "Playfair Display", serif;
+            font-size: 2rem;
+            font-weight: 500;
+        }
+
+        .close-button {
+            width: 40px;
+            height: 40px;
+            border: 1px solid rgba(44, 42, 41, 0.12);
+            border-radius: 50%;
+            background: white;
+            cursor: pointer;
+            display: grid;
+            place-items: center;
+            font-size: 1.2rem;
+            transition: 0.3s ease;
+        }
+
+        .close-button:hover {
+            background: var(--saffron);
+            color: white;
+            transform: rotate(90deg);
+        }
+
+        .modal-content {
+            padding: 28px;
+            overflow-y: auto;
+            max-height: calc(90vh - 90px);
+        }
+
+        .audio-player-box {
+            background: white;
+            border: 1px solid rgba(44, 42, 41, 0.08);
+            border-radius: 22px;
+            padding: 24px;
+            text-align: center;
+        }
+
+        .play-button {
+            width: 62px;
+            height: 62px;
+            border: none;
+            border-radius: 50%;
+            background: var(--saffron);
+            color: white;
+            cursor: pointer;
+            display: inline-grid;
+            place-items: center;
+            font-size: 1.15rem;
+            transition: 0.3s ease;
+            box-shadow: 0 10px 30px rgba(244, 123, 32, 0.2);
+        }
+
+        .play-button:hover {
+            transform: scale(1.07);
+            box-shadow: 0 14px 35px rgba(244, 123, 32, 0.28);
+        }
+
+        .audio-status {
+            margin-top: 12px;
+            font-size: 0.78rem;
+            color: rgba(44, 42, 41, 0.5);
+        }
+
+        .lyrics-controls {
+            display: flex;
+            justify-content: center;
+            margin: 25px 0 18px;
+        }
+
+        .language-toggle {
+            display: inline-flex;
+            padding: 4px;
+            background: rgba(44, 42, 41, 0.06);
+            border-radius: 999px;
+        }
+
+        .language-button {
+            border: none;
+            background: transparent;
+            padding: 9px 18px;
+            border-radius: 999px;
+            cursor: pointer;
+            font-size: 0.76rem;
+            font-weight: 600;
+            color: rgba(44, 42, 41, 0.55);
+            transition: 0.3s ease;
+        }
+
+        .language-button.active {
+            background: white;
+            color: var(--charcoal);
+            box-shadow: 0 4px 12px rgba(44, 42, 41, 0.08);
+        }
+
+        .lyrics-container {
+            height: 260px;
+            overflow-y: auto;
+            padding: 25px;
+            background: rgba(255, 255, 255, 0.65);
+            border: 1px solid rgba(44, 42, 41, 0.07);
+            border-radius: 20px;
+            text-align: center;
+            line-height: 2;
+            color: rgba(44, 42, 41, 0.75);
+        }
+
+        .lyrics-container h4 {
+            font-family: "Playfair Display", serif;
+            font-size: 1.4rem;
+            margin-bottom: 18px;
+            color: var(--charcoal);
+        }
+
+        .lyrics-text {
+            white-space: pre-line;
+        }
+
+        /* --------------------------------
+           LOCATION
+        -------------------------------- */
+
+        .location-card {
+            max-width: 760px;
+            margin: 0 auto;
+            padding: clamp(28px, 6vw, 55px);
+            border: 1px solid rgba(44, 42, 41, 0.08);
+            background: rgba(255, 255, 255, 0.65);
+            border-radius: 30px;
+            text-align: center;
+        }
+
+        .location-icon {
+            width: 55px;
+            height: 55px;
+            margin: 0 auto 20px;
+            border-radius: 50%;
+            display: grid;
+            place-items: center;
+            color: var(--saffron);
+            background: rgba(244, 123, 32, 0.08);
+        }
+
+        .address {
+            font-family: "Playfair Display", serif;
+            font-size: clamp(1.45rem, 4vw, 2.2rem);
+            line-height: 1.35;
+        }
+
+        .parking-note {
+            margin-top: 13px;
+            color: rgba(44, 42, 41, 0.55);
+            font-size: 0.88rem;
+        }
+
+        .maps-button {
+            margin-top: 27px;
+        }
+
+        /* --------------------------------
+           FOOTER
+        -------------------------------- */
+
+        footer {
+            padding: 80px 20px 35px;
+            text-align: center;
+            border-top: 1px solid rgba(44, 42, 41, 0.07);
+        }
+
+        .footer-warm {
+            color: rgba(44, 42, 41, 0.55);
+            font-size: 0.85rem;
+            letter-spacing: 0.03em;
+        }
+
+        .footer-name {
+            margin-top: 10px;
+            font-family: "Playfair Display", serif;
+            font-size: clamp(1.7rem, 5vw, 2.5rem);
+        }
+
+        .phone-links {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 12px 25px;
+            margin-top: 22px;
+        }
+
+        .phone-links a {
+            color: rgba(44, 42, 41, 0.65);
+            text-decoration: none;
+            font-size: 0.85rem;
+            transition: color 0.3s ease;
+        }
+
+        .phone-links a:hover {
+            color: var(--saffron);
+        }
+
+        .footer-blessing {
+            margin-top: 60px;
+            font-family: "Playfair Display", serif;
+            color: var(--saffron);
+            font-size: clamp(1.5rem, 5vw, 2.3rem);
+        }
+
+        .footer-bottom {
+            margin-top: 28px;
+            font-size: 0.7rem;
+            color: rgba(44, 42, 41, 0.35);
+        }
+
+        /* --------------------------------
+           RESPONSIVE
+        -------------------------------- */
+
+        @media (min-width: 640px) {
+            .schedule-grid {
+                grid-template-columns: repeat(2, minmax(0, 1fr));
+            }
+
+            .hero {
+                padding-left: 30px;
+                padding-right: 30px;
+            }
+        }
+
+        @media (min-width: 1024px) {
+            .section-container {
+                width: min(1120px, calc(100% - 70px));
+            }
+
+            .schedule-grid {
+                grid-template-columns: repeat(4, minmax(0, 1fr));
+            }
+
+            .schedule-card {
+                min-height: 285px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .section {
+                padding: 75px 0;
+            }
+
+            .section-container {
+                width: min(100% - 28px, 1120px);
+            }
+
+            .schedule-card {
+                padding: 25px;
+                min-height: 200px;
+            }
+
+            .modal-content {
+                padding: 20px;
+            }
+
+            .modal-header {
+                padding: 22px 20px 17px;
+            }
+        }
+
+        /* Reduced motion */
+        @media (prefers-reduced-motion: reduce) {
+            *,
+            *::before,
+            *::after {
+                scroll-behavior: auto !important;
+                animation-duration: 0.01ms !important;
+                animation-iteration-count: 1 !important;
+                transition-duration: 0.01ms !important;
+            }
+        }
+    </style>
 </head>
 
 <body>
 
-  <!-- ============================================
-       FALLING PARTICLES
-  ============================================= -->
-
-  <div id="particle-container"></div>
-
-  <!-- Ambient background -->
-  <div class="ambient-glow glow-one"></div>
-  <div class="ambient-glow glow-two"></div>
-
-
-  <!-- ============================================
-       HERO
-  ============================================= -->
-
-  <header class="hero px-5">
-
-    <div class="hero-content w-full max-w-4xl mx-auto text-center">
-
-      <!-- Ganesha Line Art -->
-      <div class="ganesha-wrapper" aria-label="Minimal Ganesha line art">
-
-        <svg
-          class="ganesha-svg"
-          viewBox="0 0 300 300"
-          xmlns="http://www.w3.org/2000/svg"
-          role="img"
-        >
-
-          <!-- Crown -->
-          <path d="M120 66 Q150 42 180 66" />
-          <path d="M130 62 L137 43 L150 59 L163 43 L170 62" class="ganesha-gold"/>
-
-          <!-- Head -->
-          <path d="M105 91 Q150 66 195 91" />
-          <path d="M104 92 Q91 116 101 143" />
-          <path d="M196 92 Q209 116 199 143" />
-
-          <!-- Ears -->
-          <path d="M105 102 Q67 87 54 119 Q48 145 99 139" />
-          <path d="M195 102 Q233 87 246 119 Q252 145 201 139" />
-
-          <!-- Inner ears -->
-          <path d="M96 111 Q73 108 67 124 Q73 130 96 132" />
-          <path d="M204 111 Q227 108 233 124 Q227 130 204 132" />
-
-          <!-- Eyes -->
-          <ellipse cx="127" cy="111" rx="7" ry="5" />
-          <ellipse cx="173" cy="111" rx="7" ry="5" />
-
-          <!-- Tilak -->
-          <path d="M150 92 L150 111" class="ganesha-gold" />
-          <path d="M143 92 Q150 84 157 92" class="ganesha-gold" />
-
-          <!-- Trunk -->
-          <path d="M150 118
-                   Q142 137 143 157
-                   Q144 177 160 182
-                   Q177 186 184 171
-                   Q190 158 176 153
-                   Q164 150 159 158" />
-
-          <!-- Tusks -->
-          <path d="M138 128 Q123 143 128 156" />
-          <path d="M162 128 Q177 143 172 154" />
-
-          <!-- Body -->
-          <path d="M108 153 Q94 183 104 219 Q119 247 150 252" />
-          <path d="M192 153 Q206 183 196 219 Q181 247 150 252" />
-
-          <!-- Arms -->
-          <path d="M108 174 Q79 181 67 204 Q60 218 75 223" />
-          <path d="M192 174 Q221 181 233 204 Q240 218 225 223" />
-
-          <!-- Hands -->
-          <path d="M67 204 Q58 208 61 218 Q65 227 75 223" />
-          <path d="M233 204 Q242 208 239 218 Q235 227 225 223" />
-
-          <!-- Belly -->
-          <path d="M117 207 Q150 231 183 207" />
-
-          <!-- Decorative lotus -->
-          <path d="M115 246 Q150 264 185 246" class="ganesha-gold"/>
-          <path d="M125 252 Q150 278 175 252" class="ganesha-gold"/>
-
-        </svg>
-
-      </div>
-
-
-      <div class="hero-preheading text-xs sm:text-sm font-semibold text-saffron mb-6 opacity-0">
-        || Shree Ganeshay Namah ||
-      </div>
-
-      <h1
-        class="hero-title font-display text-5xl sm:text-6xl md:text-7xl lg:text-8xl font-medium leading-tight opacity-0"
-      >
-        You Are
-        <span class="text-saffron">Warmly</span>
-        Invited.
-      </h1>
-
-      <p
-        class="hero-description max-w-2xl mx-auto mt-7 text-base sm:text-lg leading-8 text-charcoal/65 opacity-0"
-      >
-        Please join us with your family to seek Bappa’s blessings
-        and celebrate our annual Ganpati Jhanki Mahotsav.
-      </p>
-
-      <div class="mt-9 opacity-0 hero-button">
-        <a href="#schedule" class="premium-button gold-button">
-          View Program Details
-
-          <svg
-            width="17"
-            height="17"
-            viewBox="0 0 24 24"
-            fill="none"
-            stroke="currentColor"
-            stroke-width="2"
-          >
-            <path d="M12 5v14"/>
-            <path d="m19 12-7 7-7-7"/>
-          </svg>
-        </a>
-      </div>
-
-    </div>
-  </header>
-
-
-  <!-- ============================================
-       MARQUEE
-  ============================================= -->
-
-  <div class="marquee-wrapper">
-
-    <div class="marquee-track">
-
-      <div class="marquee-item">✨ Ganpati Bappa Morya ✨</div>
-      <div class="marquee-item">✨ Ganpati Bappa Morya ✨</div>
-      <div class="marquee-item">✨ Ganpati Bappa Morya ✨</div>
-      <div class="marquee-item">✨ Ganpati Bappa Morya ✨</div>
-      <div class="marquee-item">✨ Ganpati Bappa Morya ✨</div>
-      <div class="marquee-item">✨ Ganpati Bappa Morya ✨</div>
-
-      <div class="marquee-item">✨ Ganpati Bappa Morya ✨</div>
-      <div class="marquee-item">✨ Ganpati Bappa Morya ✨</div>
-      <div class="marquee-item">✨ Ganpati Bappa Morya ✨</div>
-      <div class="marquee-item">✨ Ganpati Bappa Morya ✨</div>
-      <div class="marquee-item">✨ Ganpati Bappa Morya ✨</div>
-      <div class="marquee-item">✨ Ganpati Bappa Morya ✨</div>
-
-    </div>
-
-  </div>
-
-
-  <!-- ============================================
-       SCHEDULE
-  ============================================= -->
-
-  <section id="schedule" class="section px-5">
-
-    <div class="max-w-6xl mx-auto">
-
-      <div class="text-center mb-14 reveal">
-
-        <div class="eyebrow mb-4">
-          The Celebration
-        </div>
-
-        <h2 class="section-heading">
-          Program Details
-        </h2>
-
-        <p class="max-w-xl mx-auto mt-5 text-charcoal/60 leading-7">
-          Three meaningful moments of devotion, celebration,
-          community and blessings.
-        </p>
-
-      </div>
-
-
-      <div class="grid md:grid-cols-3 gap-5">
-
-        <!-- Card 1 -->
-        <article class="schedule-card reveal">
-
-          <div class="flex justify-between items-start mb-8">
-
-            <span class="schedule-number">
-              01
-            </span>
-
-            <span class="text-xs uppercase tracking-widest text-charcoal/40">
-              Sthapana
-            </span>
-
-          </div>
-
-          <div class="event-date mb-3">
-            Sept 22, 2026
-            <span class="block mt-1">
-              9:00 PM Onwards
-            </span>
-          </div>
-
-          <h3 class="font-display text-2xl leading-snug">
-            Grand Jhanki Darshan
-            &amp; Sthapana
-          </h3>
-
-        </article>
-
-
-        <!-- Card 2 -->
-        <article class="schedule-card reveal">
-
-          <div class="flex justify-between items-start mb-8">
-
-            <span class="schedule-number">
-              02
-            </span>
-
-            <span class="text-xs uppercase tracking-widest text-charcoal/40">
-              Seva
-            </span>
-
-          </div>
-
-          <div class="event-date mb-3">
-            Sept 23, 2026
-          </div>
-
-          <h3 class="font-display text-2xl leading-snug">
-            Maha Bhandara
-            <span class="block text-base font-sans text-charcoal/50 mt-2">
-              Community Feast
-            </span>
-          </h3>
-
-        </article>
-
-
-        <!-- Card 3 -->
-        <article class="schedule-card reveal">
-
-          <div class="flex justify-between items-start mb-8">
-
-            <span class="schedule-number">
-              03
-            </span>
-
-            <span class="text-xs uppercase tracking-widest text-charcoal/40">
-              Visarjan
-            </span>
-
-          </div>
-
-          <div class="event-date mb-3">
-            Sept 25, 2026
-          </div>
-
-          <h3 class="font-display text-2xl leading-snug">
-            Visarjan
-            Ceremony
-          </h3>
-
-        </article>
-
-      </div>
-
-    </div>
-
-  </section>
-
-
-  <!-- ============================================
-       AARTI
-  ============================================= -->
-
-  <section class="section px-5 pt-10">
-
-    <div class="max-w-5xl mx-auto">
-
-      <div class="aarti-box text-center reveal">
-
-        <div class="relative z-10">
-
-          <div class="eyebrow mb-4">
-            A Moment of Devotion
-          </div>
-
-          <h2 class="section-heading text-4xl sm:text-5xl">
-            Divya Aarti
-          </h2>
-
-          <p class="max-w-lg mx-auto mt-5 text-charcoal/60 leading-7">
-            Pause for a moment, listen to the sacred aarti,
-            and offer your prayers to Bappa.
-          </p>
-
-          <button
-            id="openAarti"
-            class="premium-button gold-button mt-8"
-          >
-            Read &amp; Listen
-
-            <svg
-              width="17"
-              height="17"
-              viewBox="0 0 24 24"
-              fill="none"
-              stroke="currentColor"
-              stroke-width="2"
+    <!-- Ambient effects -->
+    <div class="ambient-glow"></div>
+    <div class="ambient-glow-2"></div>
+    <div id="particle-container"></div>
+
+    <!-- ==========================================
+         HERO
+    =========================================== -->
+    <header class="hero">
+
+        <div class="hero-inner">
+
+            <!-- Ganesha Line Art -->
+            <div class="ganesha-wrapper">
+                <svg
+                    class="ganesha-svg"
+                    viewBox="0 0 300 300"
+                    xmlns="http://www.w3.org/2000/svg"
+                    aria-label="Minimal Ganesha line art"
+                >
+
+                    <!-- Crown -->
+                    <path d="M118 91 C120 63 132 43 150 29 C168 43 180 63 182 91" />
+                    <path d="M127 76 C140 67 160 67 173 76" />
+
+                    <!-- Crown jewel -->
+                    <circle cx="150" cy="52" r="5" />
+
+                    <!-- Ears -->
+                    <path d="M111 96 C84 78 61 88 69 116 C76 138 95 143 115 126" />
+                    <path d="M189 96 C216 78 239 88 231 116 C224 138 205 143 185 126" />
+
+                    <!-- Face -->
+                    <path d="M112 91 C107 111 108 143 123 158" />
+                    <path d="M188 91 C193 111 192 143 177 158" />
+
+                    <!-- Eyes -->
+                    <path d="M124 105 Q133 98 142 105" />
+                    <path d="M176 105 Q167 98 158 105" />
+
+                    <circle cx="134" cy="107" r="2.3" />
+                    <circle cx="166" cy="107" r="2.3" />
+
+                    <!-- Trunk -->
+                    <path d="
+                        M150 116
+                        C139 119 136 136 141 151
+                        C147 168 158 173 169 166
+                        C179 160 177 147 168 143
+                        C158 138 153 144 154 153
+                        C155 162 164 164 169 158
+                    " />
+
+                    <!-- Tusks -->
+                    <path d="M136 132 C126 135 121 145 125 152" />
+                    <path d="M164 132 C174 135 179 145 175 152" />
+
+                    <!-- Body -->
+                    <path d="M123 157 C104 170 91 192 93 220" />
+                    <path d="M177 157 C196 170 209 192 207 220" />
+
+                    <!-- Arms -->
+                    <path d="M111 177 C91 181 79 195 82 211 C85 222 97 223 106 216" />
+                    <path d="M189 177 C209 181 221 195 218 211 C215 222 203 223 194 216" />
+
+                    <!-- Hands -->
+                    <path d="M106 216 Q113 224 121 217" />
+                    <path d="M194 216 Q187 224 179 217" />
+
+                    <!-- Belly -->
+                    <path d="M123 188 C128 178 172 178 177 188 C187 209 177 234 150 239 C123 234 113 209 123 188" />
+
+                    <!-- Belly ornament -->
+                    <path d="M130 204 Q150 217 170 204" />
+
+                    <!-- Legs -->
+                    <path d="M124 229 C117 239 110 248 98 251" />
+                    <path d="M176 229 C183 239 190 248 202 251" />
+
+                    <!-- Feet -->
+                    <path d="M98 251 Q110 258 121 251" />
+                    <path d="M179 251 Q190 258 202 251" />
+
+                    <!-- Decorative rays -->
+                    <line x1="150" y1="15" x2="150" y2="5" />
+                    <line x1="100" y1="39" x2="94" y2="31" />
+                    <line x1="200" y1="39" x2="206" y2="31" />
+
+                </svg>
+            </div>
+
+            <div class="hero-preheading eyebrow hero-element">
+                || Shree Ganeshay Namah ||
+            </div>
+
+            <h1 class="hero-title display-font hero-element">
+                You Are <span>Warmly</span> Invited.
+            </h1>
+
+            <p class="hero-subtitle hero-element">
+                Please join us with your family to seek Bappa’s blessings
+                and celebrate our annual Ganpati Jhanki Mahotsav.
+            </p>
+
+            <a
+                href="#schedule"
+                class="premium-button hero-element"
             >
-              <path d="M9 18V5l12-2v13"/>
-              <circle cx="6" cy="18" r="3"/>
-              <circle cx="18" cy="16" r="3"/>
-            </svg>
-
-          </button>
+                View Program Details
+                <span aria-hidden="true">↓</span>
+            </a>
 
         </div>
 
-      </div>
-
-    </div>
-
-  </section>
-
-
-  <!-- ============================================
-       LOCATION
-  ============================================= -->
-
-  <section class="section px-5">
-
-    <div class="max-w-4xl mx-auto">
-
-      <div class="location-card p-8 sm:p-12 text-center reveal">
-
-        <div class="eyebrow mb-4">
-          Find Your Way
+        <div class="scroll-indicator">
+            Scroll to discover
         </div>
 
-        <h2 class="section-heading text-4xl sm:text-5xl">
-          Location
-        </h2>
+    </header>
 
-        <div class="w-10 h-px bg-gold/60 mx-auto my-8"></div>
 
-        <p class="font-display text-xl sm:text-2xl leading-relaxed">
-          5 E 4/35 Vrindavan Colony,
-          <br />
-          Telibagh, Lucknow 226002
-        </p>
+    <!-- ==========================================
+         DIGITAL BLESSING WALL
+    =========================================== -->
+    <section class="marquee-section" aria-label="Ganpati blessing">
 
-        <p class="mt-4 text-sm text-charcoal/55">
-          Ample parking available near the pandal.
-        </p>
+        <div class="marquee-track">
 
-        <a
-          href="https://www.google.com/maps/search/?api=1&query=5+E+4%2F35+Vrindavan+Colony+Telibagh+Lucknow+226002"
-          target="_blank"
-          rel="noopener noreferrer"
-          class="premium-button mt-8"
+            <div class="marquee-content">
+                <span>✨ Ganpati Bappa Morya ✨</span>
+                <span>✨ Ganpati Bappa Morya ✨</span>
+                <span>✨ Ganpati Bappa Morya ✨</span>
+                <span>✨ Ganpati Bappa Morya ✨</span>
+                <span>✨ Ganpati Bappa Morya ✨</span>
+                <span>✨ Ganpati Bappa Morya ✨</span>
+            </div>
+
+            <div class="marquee-content" aria-hidden="true">
+                <span>✨ Ganpati Bappa Morya ✨</span>
+                <span>✨ Ganpati Bappa Morya ✨</span>
+                <span>✨ Ganpati Bappa Morya ✨</span>
+                <span>✨ Ganpati Bappa Morya ✨</span>
+                <span>✨ Ganpati Bappa Morya ✨</span>
+                <span>✨ Ganpati Bappa Morya ✨</span>
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- ==========================================
+         SCHEDULE
+    =========================================== -->
+    <main>
+
+        <section
+            id="schedule"
+            class="section"
         >
-          Open in Google Maps
 
-          <svg
-            width="17"
-            height="17"
-            viewBox="0 0 24 24"
-            fill="none"
-            stroke="currentColor"
-            stroke-width="2"
-          >
-            <path d="M12 21s7-6.2 7-12a7 7 0 1 0-14 0c0 5.8 7 12 7 12z"/>
-            <circle cx="12" cy="9" r="2.5"/>
-          </svg>
+            <div class="section-container">
 
-        </a>
+                <div class="section-heading reveal">
 
-      </div>
+                    <div class="eyebrow">
+                        Program
+                    </div>
 
-    </div>
+                    <h2>
+                        Moments of Devotion
+                    </h2>
 
-  </section>
+                    <p>
+                        Join us through every beautiful moment of our
+                        Ganpati celebration.
+                    </p>
+
+                </div>
 
 
-  <!-- ============================================
-       FOOTER
-  ============================================= -->
+                <div class="schedule-grid">
 
-  <footer class="px-5 pt-20 pb-10">
+                    <!-- Card 1 -->
+                    <article class="schedule-card reveal">
 
-    <div class="max-w-5xl mx-auto text-center">
+                        <div>
+                            <div class="schedule-number">
+                                01
+                            </div>
 
-      <div class="reveal">
+                            <div class="schedule-line"></div>
+                        </div>
 
-        <p class="text-xs uppercase tracking-[0.25em] text-charcoal/40 mb-5">
-          With Warmth &amp; Devotion
-        </p>
+                        <div>
+                            <div class="schedule-date">
+                                SEPT 22, 2026
+                                <span class="mx-1">|</span>
+                                9:00 PM ONWARDS
+                            </div>
 
-        <h2 class="font-display text-3xl sm:text-4xl">
-          Warm Regards:
-          <span class="text-saffron">
+                            <h3 class="schedule-event">
+                                Grand Jhanki Darshan &amp; Sthapana
+                            </h3>
+                        </div>
+
+                    </article>
+
+
+                    <!-- Card 2 -->
+                    <article class="schedule-card reveal">
+
+                        <div>
+                            <div class="schedule-number">
+                                02
+                            </div>
+
+                            <div class="schedule-line"></div>
+                        </div>
+
+                        <div>
+                            <div class="schedule-date">
+                                DAILY
+                                <span class="mx-1">|</span>
+                                8:00 PM
+                            </div>
+
+                            <h3 class="schedule-event">
+                                Sandhya Aarti
+                            </h3>
+                        </div>
+
+                    </article>
+
+
+                    <!-- Card 3 -->
+                    <article class="schedule-card reveal">
+
+                        <div>
+                            <div class="schedule-number">
+                                03
+                            </div>
+
+                            <div class="schedule-line"></div>
+                        </div>
+
+                        <div>
+                            <div class="schedule-date">
+                                SEPT 24, 2026
+                            </div>
+
+                            <h3 class="schedule-event">
+                                Maha Bhandara
+                                <span class="block text-base mt-2 opacity-50">
+                                    Community Feast
+                                </span>
+                            </h3>
+                        </div>
+
+                    </article>
+
+
+                    <!-- Card 4 -->
+                    <article class="schedule-card reveal">
+
+                        <div>
+                            <div class="schedule-number">
+                                04
+                            </div>
+
+                            <div class="schedule-line"></div>
+                        </div>
+
+                        <div>
+                            <div class="schedule-date">
+                                SEPT 25, 2026
+                            </div>
+
+                            <h3 class="schedule-event">
+                                Visarjan Ceremony
+                            </h3>
+                        </div>
+
+                    </article>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- ==========================================
+             DIVYA AARTI
+        =========================================== -->
+        <section class="section aarti-section">
+
+            <div class="section-container">
+
+                <div class="section-heading reveal">
+
+                    <div class="aarti-symbol">
+                        ॐ
+                    </div>
+
+                    <h2>
+                        Divya Aarti
+                    </h2>
+
+                    <p>
+                        Pause, listen and join us in seeking
+                        Bappa's divine blessings.
+                    </p>
+
+                    <button
+                        id="openAarti"
+                        class="premium-button aarti-button"
+                        type="button"
+                    >
+                        Read &amp; Listen
+                        <span>✦</span>
+                    </button>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- ==========================================
+             LOCATION
+        =========================================== -->
+        <section class="section">
+
+            <div class="section-container">
+
+                <div class="section-heading reveal">
+
+                    <div class="eyebrow">
+                        Venue
+                    </div>
+
+                    <h2>
+                        Come, Be Our Guest
+                    </h2>
+
+                </div>
+
+
+                <div class="location-card reveal">
+
+                    <div class="location-icon">
+
+                        <svg
+                            width="25"
+                            height="25"
+                            viewBox="0 0 24 24"
+                            fill="none"
+                            stroke="currentColor"
+                            stroke-width="1.7"
+                        >
+                            <path
+                                d="M20 10c0 5-8 11-8 11S4 15 4 10a8 8 0 1 1 16 0Z"
+                            />
+                            <circle
+                                cx="12"
+                                cy="10"
+                                r="2.5"
+                            />
+                        </svg>
+
+                    </div>
+
+                    <div class="address">
+                        5 E 4/35 Vrindavan Colony,
+                        Telibagh, Lucknow 226002
+                    </div>
+
+                    <div class="parking-note">
+                        Ample parking available near the pandal.
+                    </div>
+
+                    <a
+                        href="https://www.google.com/maps/search/?api=1&query=5+E+4%2F35+Vrindavan+Colony+Telibagh+Lucknow+226002"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        class="premium-button maps-button"
+                    >
+                        Open in Google Maps
+                        <span>↗</span>
+                    </a>
+
+                </div>
+
+            </div>
+
+        </section>
+
+    </main>
+
+
+    <!-- ==========================================
+         FOOTER
+    =========================================== -->
+    <footer>
+
+        <div class="footer-warm">
+            Warm Regards
+        </div>
+
+        <div class="footer-name">
             [Add Family/Committee Name Here]
-          </span>
-        </h2>
+        </div>
 
-        <div class="mt-8 flex flex-col sm:flex-row justify-center gap-3 text-sm text-charcoal/60">
+        <div class="phone-links">
 
-          <a href="tel:+910000000000" class="hover:text-saffron transition">
-            +91 00000 00000
-          </a>
+            <a href="tel:+919876543210">
+                +91 98765 43210
+            </a>
 
-          <span class="hidden sm:block text-gold">
-            •
-          </span>
-
-          <a href="tel:+910000000000" class="hover:text-saffron transition">
-            +91 00000 00000
-          </a>
+            <a href="tel:+919123456789">
+                +91 91234 56789
+            </a>
 
         </div>
 
-      </div>
+        <div class="footer-blessing">
+            Ganpati Bappa Morya!
+        </div>
+
+        <div class="footer-bottom">
+            With devotion, love &amp; gratitude.
+        </div>
+
+    </footer>
 
 
-      <div class="w-full h-px bg-charcoal/10 my-12"></div>
-
-
-      <div class="reveal">
-
-        <p class="footer-mantra">
-          Ganpati Bappa Morya!
-        </p>
-
-        <p class="mt-6 text-xs text-charcoal/35">
-          May Bappa's blessings bring peace, prosperity and happiness.
-        </p>
-
-      </div>
-
-    </div>
-
-  </footer>
-
-
-  <!-- ============================================
-       AARTI MODAL
-  ============================================= -->
-
-  <div
-    id="aartiModal"
-    class="modal-backdrop"
-    aria-hidden="true"
-  >
-
+    <!-- ==========================================
+         AARTI MODAL
+    =========================================== -->
     <div
-      id="aartiPanel"
-      class="aarti-modal"
-      role="dialog"
-      aria-modal="true"
-      aria-labelledby="aartiTitle"
+        id="aartiModal"
+        class="modal-overlay"
+        aria-hidden="true"
     >
 
-      <!-- Header -->
-
-      <div class="flex items-center justify-between p-6 sm:p-8 border-b border-charcoal/10">
-
-        <div>
-
-          <p class="eyebrow mb-2">
-            Sacred Prayer
-          </p>
-
-          <h2
-            id="aartiTitle"
-            class="font-display text-3xl"
-          >
-            Jai Ganesh Deva
-          </h2>
-
-        </div>
-
-        <button
-          id="closeAarti"
-          class="close-modal"
-          aria-label="Close Aarti"
+        <div
+            id="aartiDialog"
+            class="aarti-modal"
+            role="dialog"
+            aria-modal="true"
+            aria-labelledby="aartiTitle"
         >
-          ✕
-        </button>
 
-      </div>
+            <div class="modal-header">
+
+                <h3 id="aartiTitle">
+                    Jai Ganesh Deva
+                </h3>
+
+                <button
+                    id="closeAarti"
+                    class="close-button"
+                    type="button"
+                    aria-label="Close Aarti"
+                >
+                    ×
+                </button>
+
+            </div>
 
 
-      <!-- Controls -->
+            <div class="modal-content">
 
-      <div class="p-6 sm:p-8">
+                <!-- EXACT AUDIO ELEMENT REQUESTED -->
+                <audio
+                    id="aartiAudio"
+                    src="Kumar_Vishu_Vandana_Vajpai_-_Jai_Ganesh_Jai_Ganesh_Deva_(mp3.pm).mp3"
+                ></audio>
 
-        <div class="flex flex-wrap gap-3 justify-center">
 
-          <button
-            id="playButton"
-            class="premium-button gold-button"
-          >
-            <span id="playIcon">▶</span>
-            <span id="playText">Play Aarti</span>
-          </button>
+                <!-- Audio Player -->
+                <div class="audio-player-box">
 
-          <button
-            id="languageToggle"
-            class="premium-button"
-          >
-            हिंदी / English
-          </button>
+                    <button
+                        id="playPause"
+                        class="play-button"
+                        type="button"
+                        aria-label="Play Aarti"
+                    >
+                        ▶
+                    </button>
+
+                    <div
+                        id="audioStatus"
+                        class="audio-status"
+                    >
+                        Tap to listen
+                    </div>
+
+                </div>
+
+
+                <!-- Language Toggle -->
+                <div class="lyrics-controls">
+
+                    <div class="language-toggle">
+
+                        <button
+                            id="englishButton"
+                            class="language-button active"
+                            type="button"
+                        >
+                            English
+                        </button>
+
+                        <button
+                            id="hindiButton"
+                            class="language-button"
+                            type="button"
+                        >
+                            हिन्दी
+                        </button>
+
+                    </div>
+
+                </div>
+
+
+                <!-- Lyrics -->
+                <div class="lyrics-container">
+
+                    <h4 id="lyricsTitle">
+                        English Lyrics
+                    </h4>
+
+                    <div
+                        id="englishLyrics"
+                        class="lyrics-text"
+                    >
+Jai Ganesh Deva
+Jai Ganesh Deva
+
+Mata Jaki Parvati,
+Pita Mahadeva.
+
+Jai Ganesh Deva,
+Jai Ganesh Deva.
+
+Placeholder lyrics — replace this section
+with your preferred complete English transliteration
+or authorized lyrics text.
+
+May Lord Ganesha bless every home
+with happiness, wisdom and prosperity.
+
+Jai Ganesh Deva.
+                    </div>
+
+
+                    <div
+                        id="hindiLyrics"
+                        class="lyrics-text hidden"
+                    >
+जय गणेश देवा
+जय गणेश देवा
+
+माता जाकी पार्वती,
+पिता महादेवा।
+
+जय गणेश देवा,
+जय गणेश देवा।
+
+यहाँ अपने पसंदीदा पूर्ण हिंदी
+आरती पाठ को जोड़ें।
+
+श्री गणेश सभी के जीवन में
+सुख, शांति, बुद्धि और समृद्धि प्रदान करें।
+
+जय गणेश देवा।
+                    </div>
+
+                </div>
+
+            </div>
 
         </div>
-
-
-        <!-- Audio -->
-        <!-- Replace this placeholder source with your actual audio file -->
-
-        <audio id="aartiAudio">
-          <source
-            src="YOUR-AARTI-AUDIO.mp3"
-            type="audio/mpeg"
-          />
-          Your browser does not support audio playback.
-        </audio>
-
-
-        <!-- Lyrics -->
-
-        <div class="lyrics mt-8 pr-3">
-
-          <!-- English -->
-
-          <div id="englishLyrics">
-
-            <p class="font-display text-xl text-saffron mb-5">
-              Jai Ganesh Deva
-            </p>
-
-            <p class="leading-8 text-charcoal/70">
-              Jai Ganesh, Jai Ganesh, Jai Ganesh Deva.<br />
-              Mata Jaki Parvati, Pita Mahadeva.
-              <br /><br />
-
-              Ek dant dayavant, char bhuja dhari,
-              <br />
-              Mathe sindoor sohe, muse ki sawari.
-              <br /><br />
-
-              Andhan ko aankh det, kodhin ko kaya,
-              <br />
-              Banjhan ko putra det, nirdhan ko maya.
-              <br /><br />
-
-              Haar chadhe, phool chadhe, aur chadhe mewa,
-              <br />
-              Bhakt chadhe, puja kare, Jai Ganesh Deva.
-            </p>
-
-          </div>
-
-
-          <!-- Hindi -->
-
-          <div id="hindiLyrics" class="hidden">
-
-            <p class="font-display text-xl text-saffron mb-5">
-              जय गणेश देवा
-            </p>
-
-            <p class="leading-9 text-charcoal/70">
-
-              जय गणेश, जय गणेश, जय गणेश देवा।<br />
-              माता जाकी पार्वती, पिता महादेवा।
-              <br /><br />
-
-              एक दंत दयावंत, चार भुजा धारी,<br />
-              माथे सिंदूर सोहे, मूसे की सवारी।
-              <br /><br />
-
-              अंधन को आंख देत, कोढ़िन को काया,<br />
-              बांझन को पुत्र देत, निर्धन को माया।
-              <br /><br />
-
-              हार चढ़े, फूल चढ़े, और चढ़े मेवा,<br />
-              भक्त चढ़े, पूजा करे, जय गणेश देवा।
-
-            </p>
-
-          </div>
-
-        </div>
-
-      </div>
 
     </div>
 
-  </div>
 
+    <!-- ==========================================
+         JAVASCRIPT
+    =========================================== -->
+    <script>
 
-  <!-- ============================================
-       JAVASCRIPT
-  ============================================= -->
+        document.addEventListener("DOMContentLoaded", () => {
 
-  <script>
+            gsap.registerPlugin(ScrollTrigger);
 
-    /* --------------------------------
-       GSAP Setup
-    -------------------------------- */
 
-    gsap.registerPlugin(ScrollTrigger);
-
-
-    /* --------------------------------
-       Falling particles
-    -------------------------------- */
-
-    const particleContainer =
-      document.getElementById("particle-container");
-
-    for (let i = 0; i < 24; i++) {
-
-      const particle = document.createElement("span");
-
-      particle.classList.add("particle");
-
-      if (i % 4 === 0) {
-        particle.classList.add("petal");
-      }
-
-      particle.style.left =
-        Math.random() * 100 + "%";
-
-      particle.style.animationDuration =
-        10 + Math.random() * 15 + "s";
-
-      particle.style.animationDelay =
-        -Math.random() * 20 + "s";
-
-      particle.style.opacity =
-        0.25 + Math.random() * 0.5;
-
-      particleContainer.appendChild(particle);
-    }
-
-
-    /* --------------------------------
-       Ganesha SVG drawing
-    -------------------------------- */
-
-    const svgPaths =
-      document.querySelectorAll(".ganesha-svg path, .ganesha-svg ellipse");
-
-    svgPaths.forEach((path) => {
-
-      const length =
-        path.getTotalLength
-          ? path.getTotalLength()
-          : 100;
-
-      path.style.strokeDasharray = length;
-      path.style.strokeDashoffset = length;
-
-    });
-
-
-    /* --------------------------------
-       Hero entrance animation
-    -------------------------------- */
-
-    const heroTimeline = gsap.timeline({
-      defaults: {
-        ease: "power3.out"
-      }
-    });
-
-    heroTimeline
-      .to(".ganesha-svg path, .ganesha-svg ellipse", {
-        strokeDashoffset: 0,
-        duration: 1.8,
-        stagger: 0.035,
-        ease: "power2.inOut"
-      })
-      .to(
-        ".hero-preheading",
-        {
-          opacity: 1,
-          y: 0,
-          duration: 0.7
-        },
-        "-=0.8"
-      )
-      .fromTo(
-        ".hero-title",
-        {
-          opacity: 0,
-          y: 35
-        },
-        {
-          opacity: 1,
-          y: 0,
-          duration: 0.9
-        },
-        "-=0.35"
-      )
-      .fromTo(
-        ".hero-description",
-        {
-          opacity: 0,
-          y: 25
-        },
-        {
-          opacity: 1,
-          y: 0,
-          duration: 0.8
-        },
-        "-=0.45"
-      )
-      .fromTo(
-        ".hero-button",
-        {
-          opacity: 0,
-          y: 20
-        },
-        {
-          opacity: 1,
-          y: 0,
-          duration: 0.7
-        },
-        "-=0.35"
-      );
-
-
-    /* --------------------------------
-       Scroll animations
-    -------------------------------- */
-
-    gsap.utils.toArray(".reveal").forEach((element) => {
-
-      gsap.fromTo(
-        element,
-        {
-          opacity: 0,
-          y: 45
-        },
-        {
-          opacity: 1,
-          y: 0,
-          duration: 0.9,
-          ease: "power3.out",
-
-          scrollTrigger: {
-            trigger: element,
-            start: "top 88%",
-            once: true
-          }
-        }
-      );
-
-    });
-
-
-    /* --------------------------------
-       Gentle Ganesha floating motion
-    -------------------------------- */
-
-    gsap.to(".ganesha-wrapper", {
-      y: -7,
-      duration: 3.5,
-      repeat: -1,
-      yoyo: true,
-      ease: "sine.inOut"
-    });
-
-
-    /* --------------------------------
-       Aarti Modal
-    -------------------------------- */
-
-    const modal =
-      document.getElementById("aartiModal");
+            /* --------------------------------
+               PARTICLES
+            -------------------------------- */
 
-    const panel =
-      document.getElementById("aartiPanel");
+            const particleContainer =
+                document.getElementById("particle-container");
 
-    const openAarti =
-      document.getElementById("openAarti");
+            const particleCount =
+                window.innerWidth < 600 ? 18 : 32;
 
-    const closeAarti =
-      document.getElementById("closeAarti");
+            for (let i = 0; i < particleCount; i++) {
 
+                const particle =
+                    document.createElement("span");
 
-    function openModal() {
+                particle.classList.add("particle");
 
-      modal.style.visibility = "visible";
-      modal.setAttribute("aria-hidden", "false");
+                if (Math.random() > 0.55) {
+                    particle.classList.add("glow");
+                }
 
-      gsap.to(modal, {
-        opacity: 1,
-        duration: 0.3,
-        ease: "power2.out"
-      });
+                particle.style.left =
+                    Math.random() * 100 + "%";
 
-      gsap.to(panel, {
-        opacity: 1,
-        y: 0,
-        scale: 1,
-        duration: 0.5,
-        ease: "power3.out"
-      });
+                particle.style.animationDuration =
+                    (9 + Math.random() * 13) + "s";
 
-    }
+                particle.style.animationDelay =
+                    (-Math.random() * 20) + "s";
 
+                particle.style.opacity =
+                    0.2 + Math.random() * 0.45;
 
-    function closeModal() {
+                particleContainer.appendChild(particle);
+            }
 
-      gsap.to(panel, {
-        opacity: 0,
-        y: 30,
-        scale: 0.97,
-        duration: 0.3,
-        ease: "power2.in"
-      });
 
-      gsap.to(modal, {
-        opacity: 0,
-        duration: 0.3,
-        delay: 0.05,
-        onComplete: () => {
+            /* --------------------------------
+               HERO SVG DRAWING
+            -------------------------------- */
 
-          modal.style.visibility = "hidden";
+            const ganeshaElements =
+                document.querySelectorAll(
+                    ".ganesha-svg path, .ganesha-svg circle, .ganesha-svg line"
+                );
 
-          modal.setAttribute(
-            "aria-hidden",
-            "true"
-          );
+            ganeshaElements.forEach((element) => {
 
-        }
-      });
+                try {
 
-    }
+                    const length =
+                        element.getTotalLength();
 
+                    gsap.set(element, {
+                        strokeDasharray: length,
+                        strokeDashoffset: length
+                    });
 
-    openAarti.addEventListener(
-      "click",
-      openModal
-    );
+                } catch (error) {
+                    // Ignore SVG elements that don't support path length.
+                }
 
-    closeAarti.addEventListener(
-      "click",
-      closeModal
-    );
+            });
 
 
-    /* Click outside modal */
+            const heroTimeline =
+                gsap.timeline({
+                    defaults: {
+                        ease: "power3.out"
+                    }
+                });
 
-    modal.addEventListener("click", (event) => {
 
-      if (event.target === modal) {
-        closeModal();
-      }
+            heroTimeline.to(
+                ".ganesha-svg path, .ganesha-svg circle, .ganesha-svg line",
+                {
+                    strokeDashoffset: 0,
+                    duration: 1.8,
+                    stagger: 0.025,
+                    ease: "power2.inOut"
+                }
+            );
 
-    });
 
+            heroTimeline.from(
+                ".hero-element",
+                {
+                    y: 28,
+                    opacity: 0,
+                    duration: 0.75,
+                    stagger: 0.14
+                },
+                "-=0.8"
+            );
 
-    /* Escape key */
 
-    document.addEventListener("keydown", (event) => {
+            /* --------------------------------
+               HERO FLOAT
+            -------------------------------- */
 
-      if (event.key === "Escape") {
+            gsap.to(".ganesha-wrapper", {
+                y: -7,
+                duration: 3.5,
+                repeat: -1,
+                yoyo: true,
+                ease: "sine.inOut"
+            });
 
-        if (modal.style.visibility === "visible") {
-          closeModal();
-        }
 
-      }
+            /* --------------------------------
+               SCROLL REVEALS
+            -------------------------------- */
 
-    });
+            gsap.utils.toArray(".reveal").forEach((element) => {
 
+                gsap.from(element, {
+                    y: 45,
+                    opacity: 0,
+                    duration: 0.9,
+                    ease: "power3.out",
 
-    /* --------------------------------
-       Audio Player
-    -------------------------------- */
+                    scrollTrigger: {
+                        trigger: element,
+                        start: "top 86%",
+                        once: true
+                    }
+                });
 
-    const audio =
-      document.getElementById("aartiAudio");
+            });
 
-    const playButton =
-      document.getElementById("playButton");
 
-    const playIcon =
-      document.getElementById("playIcon");
+            /* --------------------------------
+               SCHEDULE CARDS
+            -------------------------------- */
 
-    const playText =
-      document.getElementById("playText");
+            gsap.from(".schedule-card", {
 
+                y: 45,
+                opacity: 0,
+                duration: 0.8,
+                stagger: 0.12,
+                ease: "power3.out",
 
-    playButton.addEventListener("click", () => {
+                scrollTrigger: {
+                    trigger: ".schedule-grid",
+                    start: "top 82%",
+                    once: true
+                }
 
-      if (audio.paused) {
+            });
 
-        audio.play()
-          .then(() => {
 
-            playIcon.textContent = "❚❚";
-            playText.textContent = "Pause Aarti";
+            /* --------------------------------
+               AARTI MODAL
+            -------------------------------- */
 
-          })
-          .catch(() => {
+            const modal =
+                document.getElementById("aartiModal");
 
-            /*
-              The placeholder audio file does not exist yet.
-              Replace YOUR-AARTI-AUDIO.mp3 with your real audio file.
-            */
+            const dialog =
+                document.getElementById("aartiDialog");
 
-            playIcon.textContent = "▶";
-            playText.textContent = "Add Aarti Audio";
+            const openButton =
+                document.getElementById("openAarti");
 
-          });
+            const closeButton =
+                document.getElementById("closeAarti");
 
-      } else {
+            const audio =
+                document.getElementById("aartiAudio");
 
-        audio.pause();
+            const playPause =
+                document.getElementById("playPause");
 
-        playIcon.textContent = "▶";
-        playText.textContent = "Play Aarti";
+            const audioStatus =
+                document.getElementById("audioStatus");
 
-      }
 
-    });
+            function openModal() {
 
+                modal.classList.add("active");
 
-    audio.addEventListener("ended", () => {
+                modal.setAttribute("aria-hidden", "false");
 
-      playIcon.textContent = "▶";
-      playText.textContent = "Play Aarti";
+                document.body.style.overflow = "hidden";
 
-    });
+                gsap.fromTo(
+                    dialog,
+                    {
+                        opacity: 0,
+                        y: 35,
+                        scale: 0.96
+                    },
+                    {
+                        opacity: 1,
+                        y: 0,
+                        scale: 1,
+                        duration: 0.5,
+                        ease: "power3.out"
+                    }
+                );
 
+            }
 
-    /* --------------------------------
-       Language toggle
-    -------------------------------- */
 
-    const languageToggle =
-      document.getElementById("languageToggle");
+            function closeModal() {
 
-    const englishLyrics =
-      document.getElementById("englishLyrics");
+                audio.pause();
 
-    const hindiLyrics =
-      document.getElementById("hindiLyrics");
+                playPause.innerHTML = "▶";
 
-    let hindiActive = false;
+                audioStatus.textContent =
+                    "Tap to listen";
 
+                gsap.to(dialog, {
 
-    languageToggle.addEventListener("click", () => {
+                    opacity: 0,
+                    y: 25,
+                    scale: 0.97,
+                    duration: 0.25,
+                    ease: "power2.in",
 
-      hindiActive = !hindiActive;
+                    onComplete: () => {
 
-      if (hindiActive) {
+                        modal.classList.remove("active");
 
-        englishLyrics.classList.add("hidden");
-        hindiLyrics.classList.remove("hidden");
+                        modal.setAttribute(
+                            "aria-hidden",
+                            "true"
+                        );
 
-      } else {
+                        document.body.style.overflow = "";
 
-        hindiLyrics.classList.add("hidden");
-        englishLyrics.classList.remove("hidden");
+                    }
 
-      }
+                });
 
-    });
+            }
 
 
-    /* --------------------------------
-       Refresh ScrollTrigger
-    -------------------------------- */
+            openButton.addEventListener(
+                "click",
+                openModal
+            );
 
-    window.addEventListener("load", () => {
+            closeButton.addEventListener(
+                "click",
+                closeModal
+            );
 
-      ScrollTrigger.refresh();
 
-    });
+            modal.addEventListener(
+                "click",
+                (event) => {
 
-  </script>
+                    if (event.target === modal) {
+                        closeModal();
+                    }
+
+                }
+            );
+
+
+            document.addEventListener(
+                "keydown",
+                (event) => {
+
+                    if (
+                        event.key === "Escape" &&
+                        modal.classList.contains("active")
+                    ) {
+                        closeModal();
+                    }
+
+                }
+            );
+
+
+            /* --------------------------------
+               AUDIO CONTROL
+            -------------------------------- */
+
+            playPause.addEventListener(
+                "click",
+                async () => {
+
+                    if (audio.paused) {
+
+                        try {
+
+                            await audio.play();
+
+                            playPause.innerHTML = "Ⅱ";
+
+                            audioStatus.textContent =
+                                "Playing Aarti";
+
+                        } catch (error) {
+
+                            audioStatus.textContent =
+                                "Audio file could not be played. Check the MP3 filename/path.";
+
+                        }
+
+                    } else {
+
+                        audio.pause();
+
+                        playPause.innerHTML = "▶";
+
+                        audioStatus.textContent =
+                            "Paused";
+
+                    }
+
+                }
+            );
+
+
+            audio.addEventListener(
+                "ended",
+                () => {
+
+                    playPause.innerHTML = "▶";
+
+                    audioStatus.textContent =
+                        "Tap to listen again";
+
+                }
+            );
+
+
+            /* --------------------------------
+               LANGUAGE TOGGLE
+            -------------------------------- */
+
+            const englishButton =
+                document.getElementById("englishButton");
+
+            const hindiButton =
+                document.getElementById("hindiButton");
+
+            const englishLyrics =
+                document.getElementById("englishLyrics");
+
+            const hindiLyrics =
+                document.getElementById("hindiLyrics");
+
+            const lyricsTitle =
+                document.getElementById("lyricsTitle");
+
+
+            englishButton.addEventListener(
+                "click",
+                () => {
+
+                    englishButton.classList.add("active");
+
+                    hindiButton.classList.remove("active");
+
+                    englishLyrics.classList.remove("hidden");
+
+                    hindiLyrics.classList.add("hidden");
+
+                    lyricsTitle.textContent =
+                        "English Lyrics";
+
+                }
+            );
+
+
+            hindiButton.addEventListener(
+                "click",
+                () => {
+
+                    hindiButton.classList.add("active");
+
+                    englishButton.classList.remove("active");
+
+                    hindiLyrics.classList.remove("hidden");
+
+                    englishLyrics.classList.add("hidden");
+
+                    lyricsTitle.textContent =
+                        "हिंदी आरती";
+
+                }
+            );
+
+
+            /* --------------------------------
+               SMOOTH ANCHOR SCROLL
+            -------------------------------- */
+
+            document
+                .querySelectorAll('a[href^="#"]')
+                .forEach((anchor) => {
+
+                    anchor.addEventListener(
+                        "click",
+                        function (event) {
+
+                            const target =
+                                document.querySelector(
+                                    this.getAttribute("href")
+                                );
+
+                            if (!target) return;
+
+                            event.preventDefault();
+
+                            target.scrollIntoView({
+                                behavior: "smooth",
+                                block: "start"
+                            });
+
+                        }
+                    );
+
+                });
+
+
+            /* --------------------------------
+               PARALLAX AMBIENT EFFECT
+            -------------------------------- */
+
+            gsap.to(".ambient-glow", {
+
+                y: 180,
+                duration: 12,
+                repeat: -1,
+                yoyo: true,
+                ease: "sine.inOut"
+
+            });
+
+
+            gsap.to(".ambient-glow-2", {
+
+                x: -100,
+                y: -80,
+                duration: 14,
+                repeat: -1,
+                yoyo: true,
+                ease: "sine.inOut"
+
+            });
+
+
+            /* --------------------------------
+               REFRESH SCROLLTRIGGER
+            -------------------------------- */
+
+            window.addEventListener(
+                "load",
+                () => {
+                    ScrollTrigger.refresh();
+                }
+            );
+
+        });
+
+    </script>
 
 </body>
 </html>
