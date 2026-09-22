@@ -187,6 +187,7 @@
 
         /* --------------------------------
            HERO
+           ORIGINAL HERO — PRESERVED
         -------------------------------- */
 
         .hero {
@@ -615,7 +616,7 @@
         }
 
         .lyrics-container {
-            height: 260px;
+            height: 300px;
             overflow-y: auto;
             padding: 25px;
             background: rgba(255, 255, 255, 0.65);
@@ -624,6 +625,21 @@
             text-align: center;
             line-height: 2;
             color: rgba(44, 42, 41, 0.75);
+            scrollbar-width: thin;
+            scrollbar-color: rgba(244, 123, 32, 0.35) transparent;
+        }
+
+        .lyrics-container::-webkit-scrollbar {
+            width: 5px;
+        }
+
+        .lyrics-container::-webkit-scrollbar-track {
+            background: transparent;
+        }
+
+        .lyrics-container::-webkit-scrollbar-thumb {
+            background: rgba(244, 123, 32, 0.35);
+            border-radius: 999px;
         }
 
         .lyrics-container h4 {
@@ -635,6 +651,10 @@
 
         .lyrics-text {
             white-space: pre-line;
+        }
+
+        .lyrics-text.hidden {
+            display: none;
         }
 
         /* --------------------------------
@@ -737,6 +757,7 @@
         -------------------------------- */
 
         @media (min-width: 640px) {
+
             .schedule-grid {
                 grid-template-columns: repeat(2, minmax(0, 1fr));
             }
@@ -748,6 +769,7 @@
         }
 
         @media (min-width: 1024px) {
+
             .section-container {
                 width: min(1120px, calc(100% - 70px));
             }
@@ -762,6 +784,7 @@
         }
 
         @media (max-width: 480px) {
+
             .section {
                 padding: 75px 0;
             }
@@ -782,10 +805,17 @@
             .modal-header {
                 padding: 22px 20px 17px;
             }
+
+            .lyrics-container {
+                height: 280px;
+                padding: 20px 16px;
+            }
         }
 
         /* Reduced motion */
+
         @media (prefers-reduced-motion: reduce) {
+
             *,
             *::before,
             *::after {
@@ -805,15 +835,20 @@
     <div class="ambient-glow-2"></div>
     <div id="particle-container"></div>
 
+
     <!-- ==========================================
          HERO
+         ORIGINAL HERO — UNCHANGED
     =========================================== -->
+
     <header class="hero">
 
         <div class="hero-inner">
 
             <!-- Ganesha Line Art -->
+
             <div class="ganesha-wrapper">
+
                 <svg
                     class="ganesha-svg"
                     viewBox="0 0 300 300"
@@ -889,20 +924,25 @@
                     <line x1="200" y1="39" x2="206" y2="31" />
 
                 </svg>
+
             </div>
+
 
             <div class="hero-preheading eyebrow hero-element">
                 || Shree Ganeshay Namah ||
             </div>
 
+
             <h1 class="hero-title display-font hero-element">
                 You Are <span>Warmly</span> Invited.
             </h1>
+
 
             <p class="hero-subtitle hero-element">
                 Please join us with your family to seek Bappa’s blessings
                 and celebrate our annual Ganpati Jhanki Mahotsav.
             </p>
+
 
             <a
                 href="#schedule"
@@ -914,6 +954,7 @@
 
         </div>
 
+
         <div class="scroll-indicator">
             Scroll to discover
         </div>
@@ -924,26 +965,38 @@
     <!-- ==========================================
          DIGITAL BLESSING WALL
     =========================================== -->
-    <section class="marquee-section" aria-label="Ganpati blessing">
+
+    <section
+        class="marquee-section"
+        aria-label="Ganpati blessing"
+    >
 
         <div class="marquee-track">
 
             <div class="marquee-content">
+
                 <span>✨ Ganpati Bappa Morya ✨</span>
                 <span>✨ Ganpati Bappa Morya ✨</span>
                 <span>✨ Ganpati Bappa Morya ✨</span>
                 <span>✨ Ganpati Bappa Morya ✨</span>
                 <span>✨ Ganpati Bappa Morya ✨</span>
                 <span>✨ Ganpati Bappa Morya ✨</span>
+
             </div>
 
-            <div class="marquee-content" aria-hidden="true">
+
+            <div
+                class="marquee-content"
+                aria-hidden="true"
+            >
+
                 <span>✨ Ganpati Bappa Morya ✨</span>
                 <span>✨ Ganpati Bappa Morya ✨</span>
                 <span>✨ Ganpati Bappa Morya ✨</span>
                 <span>✨ Ganpati Bappa Morya ✨</span>
                 <span>✨ Ganpati Bappa Morya ✨</span>
                 <span>✨ Ganpati Bappa Morya ✨</span>
+
             </div>
 
         </div>
@@ -954,6 +1007,7 @@
     <!-- ==========================================
          SCHEDULE
     =========================================== -->
+
     <main>
 
         <section
@@ -983,18 +1037,23 @@
 
                 <div class="schedule-grid">
 
-                    <!-- Card 1 -->
+                    <!-- 01 -->
+
                     <article class="schedule-card reveal">
 
                         <div>
+
                             <div class="schedule-number">
                                 01
                             </div>
 
                             <div class="schedule-line"></div>
+
                         </div>
 
+
                         <div>
+
                             <div class="schedule-date">
                                 SEPT 22, 2026
                                 <span class="mx-1">|</span>
@@ -1002,78 +1061,99 @@
                             </div>
 
                             <h3 class="schedule-event">
-                                Grand Jhanki Darshan &amp; Sthapana
+                                Grand Jhanki Darshan &amp; Live
                             </h3>
+
                         </div>
 
                     </article>
 
 
-                    <!-- Card 2 -->
+                    <!-- 02 -->
+
                     <article class="schedule-card reveal">
 
                         <div>
+
                             <div class="schedule-number">
                                 02
                             </div>
 
                             <div class="schedule-line"></div>
+
                         </div>
 
+
                         <div>
+
                             <div class="schedule-date">
-                                DAILY
+                                DAILY Evening
                                 <span class="mx-1">|</span>
-                                8:00 PM
+                                8:00 PM 
                             </div>
 
                             <h3 class="schedule-event">
                                 Sandhya Aarti
                             </h3>
+
                         </div>
 
                     </article>
 
 
-                    <!-- Card 3 -->
+                    <!-- 03 -->
+
                     <article class="schedule-card reveal">
 
                         <div>
+
                             <div class="schedule-number">
                                 03
                             </div>
 
                             <div class="schedule-line"></div>
+
                         </div>
 
+
                         <div>
+
                             <div class="schedule-date">
                                 SEPT 24, 2026
                             </div>
 
                             <h3 class="schedule-event">
+
                                 Maha Bhandara
+
                                 <span class="block text-base mt-2 opacity-50">
                                     Community Feast
                                 </span>
+
                             </h3>
+
                         </div>
 
                     </article>
 
 
-                    <!-- Card 4 -->
+                    <!-- 04 -->
+
                     <article class="schedule-card reveal">
 
                         <div>
+
                             <div class="schedule-number">
                                 04
                             </div>
 
                             <div class="schedule-line"></div>
+
                         </div>
 
+
                         <div>
+
                             <div class="schedule-date">
                                 SEPT 25, 2026
                             </div>
@@ -1081,6 +1161,7 @@
                             <h3 class="schedule-event">
                                 Visarjan Ceremony
                             </h3>
+
                         </div>
 
                     </article>
@@ -1095,6 +1176,7 @@
         <!-- ==========================================
              DIVYA AARTI
         =========================================== -->
+
         <section class="section aarti-section">
 
             <div class="section-container">
@@ -1113,6 +1195,7 @@
                         Pause, listen and join us in seeking
                         Bappa's divine blessings.
                     </p>
+
 
                     <button
                         id="openAarti"
@@ -1133,6 +1216,7 @@
         <!-- ==========================================
              LOCATION
         =========================================== -->
+
         <section class="section">
 
             <div class="section-container">
@@ -1162,35 +1246,48 @@
                             stroke="currentColor"
                             stroke-width="1.7"
                         >
+
                             <path
                                 d="M20 10c0 5-8 11-8 11S4 15 4 10a8 8 0 1 1 16 0Z"
                             />
+
                             <circle
                                 cx="12"
                                 cy="10"
                                 r="2.5"
                             />
+
                         </svg>
 
                     </div>
 
+
                     <div class="address">
+
                         5 E 4/35 Vrindavan Colony,
                         Telibagh, Lucknow 226002
+
                     </div>
+
 
                     <div class="parking-note">
                         Ample parking available near the pandal.
                     </div>
 
+
+                    <!-- EXACT GOOGLE MAPS LINK PROVIDED -->
+
                     <a
-                        href="https://www.google.com/maps/search/?api=1&query=5+E+4%2F35+Vrindavan+Colony+Telibagh+Lucknow+226002"
+                        href="https://www.google.com/maps/search/SE46,+Launga+Khera+Kharika,+Telibagh,+Lucknow,+Uttar+Pradesh/@26.7754135,80.9609217,14z?utm_campaign=ml-ardl&g_ep=Eg1tbF8yMDI2MDkxNV8wIJvbDyoASAJQAQ%3D%3D"
                         target="_blank"
                         rel="noopener noreferrer"
                         class="premium-button maps-button"
                     >
+
                         Open in Google Maps
+
                         <span>↗</span>
+
                     </a>
 
                 </div>
@@ -1205,31 +1302,36 @@
     <!-- ==========================================
          FOOTER
     =========================================== -->
+
     <footer>
 
         <div class="footer-warm">
             Warm Regards
         </div>
 
+
         <div class="footer-name">
-            [Add Family/Committee Name Here]
+            Moni And Sachin Yadav
         </div>
+
 
         <div class="phone-links">
 
-            <a href="tel:+919876543210">
-                +91 98765 43210
+            <a href="tel:+916306641647">
+                +91 63066 41647
             </a>
 
-            <a href="tel:+919123456789">
-                +91 91234 56789
+            <a href="tel:+919695037840">
+                +91 96950 37840
             </a>
 
         </div>
+
 
         <div class="footer-blessing">
             Ganpati Bappa Morya!
         </div>
+
 
         <div class="footer-bottom">
             With devotion, love &amp; gratitude.
@@ -1241,6 +1343,7 @@
     <!-- ==========================================
          AARTI MODAL
     =========================================== -->
+
     <div
         id="aartiModal"
         class="modal-overlay"
@@ -1261,6 +1364,7 @@
                     Jai Ganesh Deva
                 </h3>
 
+
                 <button
                     id="closeAarti"
                     class="close-button"
@@ -1275,14 +1379,16 @@
 
             <div class="modal-content">
 
-                <!-- EXACT AUDIO ELEMENT REQUESTED -->
+                <!-- EXACT AUDIO ELEMENT -->
+
                 <audio
                     id="aartiAudio"
                     src="Kumar_Vishu_Vandana_Vajpai_-_Jai_Ganesh_Jai_Ganesh_Deva_(mp3.pm).mp3"
                 ></audio>
 
 
-                <!-- Audio Player -->
+                <!-- AUDIO PLAYER -->
+
                 <div class="audio-player-box">
 
                     <button
@@ -1294,6 +1400,7 @@
                         ▶
                     </button>
 
+
                     <div
                         id="audioStatus"
                         class="audio-status"
@@ -1304,7 +1411,8 @@
                 </div>
 
 
-                <!-- Language Toggle -->
+                <!-- LANGUAGE TOGGLE -->
+
                 <div class="lyrics-controls">
 
                     <div class="language-toggle">
@@ -1316,6 +1424,7 @@
                         >
                             English
                         </button>
+
 
                         <button
                             id="hindiButton"
@@ -1330,58 +1439,247 @@
                 </div>
 
 
-                <!-- Lyrics -->
+                <!-- LYRICS -->
+
                 <div class="lyrics-container">
 
                     <h4 id="lyricsTitle">
                         English Lyrics
                     </h4>
 
+
+                    <!-- =====================================
+                         ENGLISH / ROMAN TRANSLITERATION
+                    ====================================== -->
+
                     <div
                         id="englishLyrics"
                         class="lyrics-text"
-                    >
+                    >Chorus
+
+Jai Ganesh Jai Ganesh
 Jai Ganesh Deva
+(Jai Ganesh Jai Ganesh
+Jai Ganesh Deva)
+
+Mata Jyaaki Parvati
+Pita Mahadeva
+(Mata Jyaaki Parvati
+Pita Mahadeva)
+
+Jai Ganesh Jai Ganesh
 Jai Ganesh Deva
 
-Mata Jaki Parvati,
-Pita Mahadeva.
+Mata Jyaaki Parvati
+Pita Mahadeva
+(Mata Jyaaki Parvati
+Pita Mahadeva)
 
-Jai Ganesh Deva,
-Jai Ganesh Deva.
 
-Placeholder lyrics — replace this section
-with your preferred complete English transliteration
-or authorized lyrics text.
+Verse
 
-May Lord Ganesha bless every home
-with happiness, wisdom and prosperity.
+Ekdant Dayavant Char Bhuja Dhaari
+(Ekdant Dayavant Char Bhuja Dhaari)
 
-Jai Ganesh Deva.
-                    </div>
+Mastak Sindoor Sohe Muse Ki Sawari
+(Mastak Sindoor Sohe Muse Ki Sawari)
 
+
+Chorus
+
+Jai Ganesh Jai Ganesh
+Jai Ganesh Deva
+
+Mata Jyaaki Parvati
+Pita Mahadeva
+
+(Jai Ganesh Jai Ganesh)
+(Jai Ganesh Deva)
+(Mata Jyaaki Parvati
+Pita Mahadeva)
+
+
+Verse
+
+Paan Chadhe Phool Chadhe Aur Chadhe Mewa
+(Paan Chadhe Phool Chadhe Aur Chadhe Mewa)
+
+Ladhuwan Ka Bhog Lage Sant Kare Seva
+(Ladhuwan Ka Bhog Lage Sant Kare Seva)
+
+
+Chorus
+
+Jai Ganesh Jai Ganesh
+Jai Ganesh Deva
+
+Mata Jyaaki Parvati
+Pita Mahadeva
+
+(Jai Ganesh Jai Ganesh)
+(Jai Ganesh Deva)
+(Mata Jyaaki Parvati
+Pita Mahadeva)
+
+
+Verse
+
+Andhan Ko Aankh Det Kodhin Ko Kaaya
+(Andhan Ko Aankh Det Kodhin Ko Kaaya)
+
+Baanjhan Ko Putra Det Nirdhan Ko Maaya
+(Baanjhan Ko Putra Det Nirdhan Ko Maaya)
+
+
+Chorus
+
+Jai Ganesh Jai Ganesh
+Jai Ganesh Deva
+
+Mata Jyaaki Parvati
+Pita Mahadeva
+
+(Jai Ganesh Jai Ganesh)
+(Jai Ganesh Deva)
+(Mata Jyaaki Parvati
+Pita Mahadeva)
+
+
+Verse
+
+Sur Shaam Sharan Aaye Safal Kijiye Seva
+(Sur Shaam Sharan Aaye Safal Kijiye Seva)
+
+Bhaktjan Tohri Sharan Kripa Rakho Deva
+Bhaktjan Tohri Sharan Kripa Rakho Deva
+
+
+Chorus
+
+Jai Ganesh Jai Ganesh
+Jai Ganesh Deva
+
+Mata Jyaaki Parvati
+Pita Mahadeva
+
+(Jai Ganesh Jai Ganesh)
+(Jai Ganesh Deva)
+(Mata Jyaaki Parvati
+Pita Mahadeva)
+
+
+Jai Ganesh Jai Ganesh
+Jai Ganesh Deva
+
+Mata Jyaaki Parvati
+Pita Mahadeva
+
+(Jai Ganesh Jai Ganesh)
+(Jai Ganesh Deva)
+(Mata Jyaaki Parvati Mahadeva)
+
+(Jai Ganesh Jai Ganesh)
+(Jai Ganesh Deva)
+(Mata Jyaaki Parvati...)</div>
+
+
+                    <!-- =====================================
+                         HINDI LYRICS
+                    ====================================== -->
 
                     <div
                         id="hindiLyrics"
                         class="lyrics-text hidden"
-                    >
+                    >जय गणेश जय गणेश
 जय गणेश देवा
+(जय गणेश जय गणेश
+जय गणेश देवा)
+
+माता ज्याकी पार्वती पिता महादेवा
+(माता ज्याकी पार्वती पिता महादेवा)
+
+जय गणेश जय गणेश
 जय गणेश देवा
 
-माता जाकी पार्वती,
-पिता महादेवा।
+माता ज्याकी पार्वती पिता महादेवा
+(माता ज्याकी पार्वती पिता महादेवा)
 
-जय गणेश देवा,
-जय गणेश देवा।
 
-यहाँ अपने पसंदीदा पूर्ण हिंदी
-आरती पाठ को जोड़ें।
+एकदंत दयावंत चार भुजा धारी
+(एकदंत दयावंत चार भुजा धारी)
 
-श्री गणेश सभी के जीवन में
-सुख, शांति, बुद्धि और समृद्धि प्रदान करें।
+मस्तक सिंदूर सोहे मुसे की सवारी
+(मस्तक सिंदूर सोहे मुसे की सवारी)
 
-जय गणेश देवा।
-                    </div>
+
+जय गणेश जय गणेश
+जय गणेश देवा
+
+माता ज्याकी पार्वती पिता महादेवा
+(जय गणेश जय गणेश)
+(जय गणेश देवा)
+(माता ज्याकी पार्वती पिता महादेवा)
+
+
+पान चढ़े फूल चढ़े और चढ़े मेवा
+(पान चढ़े फूल चढ़े और चढ़े मेवा)
+
+लढूअन का भोग लगे संत करे सेवा
+(लढूअन का भोग लगे संत करे सेवा)
+
+
+जय गणेश जय गणेश
+जय गणेश देवा
+
+माता ज्याकी पार्वती पिता महादेवा
+(जय गणेश जय गणेश)
+(जय गणेश देवा)
+(माता ज्याकी पार्वती पिता महादेवा)
+
+
+अंधन को आँख देत कोढिन को काया
+(अंधन को आँख देत कोढिन को काया)
+
+बांझन को पुत्र देत निर्धन को माया
+(बांझन को पुत्र देत निर्धन को माया)
+
+
+जय गणेश जय गणेश
+जय गणेश देवा
+
+माता ज्याकी पार्वती पिता महादेवा
+(जय गणेश जय गणेश)
+(जय गणेश देवा)
+(माता ज्याकी पार्वती पिता महादेवा)
+
+
+सूर शाम शरण आये सफल कीजिये सेवा
+(सूर शाम शरण आये सफल कीजिये सेवा)
+
+भक्तजन तोहरी शरण कृपा रखो देवा
+भक्तजन तोहरी शरण कृपा रखो देवा
+
+
+जय गणेश जय गणेश
+जय गणेश देवा
+
+माता ज्याकी पार्वती पिता महादेवा
+(जय गणेश जय गणेश)
+(जय गणेश देवा)
+(माता ज्याकी पार्वती पिता महादेवा)
+
+
+जय गणेश जय गणेश
+जय गणेश देवा
+
+माता ज्याकी पार्वती पिता महादेवा
+(जय गणेश जय गणेश)
+(जय गणेश देवा)
+(माता ज्याकी पार्वती...)
+
+(जय गणेश जय गणेश)
+(जय गणेश देवा)
+(माता ज्याकी पार्वती...)</div>
 
                 </div>
 
@@ -1395,6 +1693,7 @@ Jai Ganesh Deva.
     <!-- ==========================================
          JAVASCRIPT
     =========================================== -->
+
     <script>
 
         document.addEventListener("DOMContentLoaded", () => {
@@ -1412,6 +1711,7 @@ Jai Ganesh Deva.
             const particleCount =
                 window.innerWidth < 600 ? 18 : 32;
 
+
             for (let i = 0; i < particleCount; i++) {
 
                 const particle =
@@ -1419,34 +1719,43 @@ Jai Ganesh Deva.
 
                 particle.classList.add("particle");
 
+
                 if (Math.random() > 0.55) {
                     particle.classList.add("glow");
                 }
 
+
                 particle.style.left =
                     Math.random() * 100 + "%";
+
 
                 particle.style.animationDuration =
                     (9 + Math.random() * 13) + "s";
 
+
                 particle.style.animationDelay =
                     (-Math.random() * 20) + "s";
+
 
                 particle.style.opacity =
                     0.2 + Math.random() * 0.45;
 
+
                 particleContainer.appendChild(particle);
+
             }
 
 
             /* --------------------------------
                HERO SVG DRAWING
+               ORIGINAL ANIMATION
             -------------------------------- */
 
             const ganeshaElements =
                 document.querySelectorAll(
                     ".ganesha-svg path, .ganesha-svg circle, .ganesha-svg line"
                 );
+
 
             ganeshaElements.forEach((element) => {
 
@@ -1455,13 +1764,14 @@ Jai Ganesh Deva.
                     const length =
                         element.getTotalLength();
 
+
                     gsap.set(element, {
                         strokeDasharray: length,
                         strokeDashoffset: length
                     });
 
                 } catch (error) {
-                    // Ignore SVG elements that don't support path length.
+                    // Ignore unsupported SVG elements.
                 }
 
             });
@@ -1518,6 +1828,7 @@ Jai Ganesh Deva.
             gsap.utils.toArray(".reveal").forEach((element) => {
 
                 gsap.from(element, {
+
                     y: 45,
                     opacity: 0,
                     duration: 0.9,
@@ -1528,6 +1839,7 @@ Jai Ganesh Deva.
                         start: "top 86%",
                         once: true
                     }
+
                 });
 
             });
@@ -1584,9 +1896,13 @@ Jai Ganesh Deva.
 
                 modal.classList.add("active");
 
-                modal.setAttribute("aria-hidden", "false");
+                modal.setAttribute(
+                    "aria-hidden",
+                    "false"
+                );
 
                 document.body.style.overflow = "hidden";
+
 
                 gsap.fromTo(
                     dialog,
@@ -1615,6 +1931,7 @@ Jai Ganesh Deva.
 
                 audioStatus.textContent =
                     "Tap to listen";
+
 
                 gsap.to(dialog, {
 
@@ -1646,6 +1963,7 @@ Jai Ganesh Deva.
                 "click",
                 openModal
             );
+
 
             closeButton.addEventListener(
                 "click",
@@ -1825,7 +2143,7 @@ Jai Ganesh Deva.
 
 
             /* --------------------------------
-               PARALLAX AMBIENT EFFECT
+               AMBIENT MOTION
             -------------------------------- */
 
             gsap.to(".ambient-glow", {
@@ -1858,7 +2176,9 @@ Jai Ganesh Deva.
             window.addEventListener(
                 "load",
                 () => {
+
                     ScrollTrigger.refresh();
+
                 }
             );
 
